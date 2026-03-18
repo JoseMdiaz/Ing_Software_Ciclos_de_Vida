@@ -3,7 +3,7 @@
 ## 1. División de Roles
 En este proceso de producción colaborativa, la división de tareas se estructuró de la siguiente manera:
 
-*   **Jose (Liderazgo Pedagógico y Curaduría):** Actuó como el experto en el área de desempeño (Ingeniería de Software). Su rol principal fue definir el nodo curricular, establecer los objetivos de aprendizaje y supervisar la precisión técnica y pedagógica del contenido. Validó que el recurso respondiera a una necesidad diagnóstica real: la dificultad de los estudiantes para elegir entre enfoques tradicionales y ágiles.
+*   **Lcda. Gaubys López / Lcdo. José M. Díaz (Liderazgo Pedagógico y Curaduría):** Actuó como el experto en el área de desempeño (Ingeniería de Software). Su rol principal fue definir el nodo curricular, establecer los objetivos de aprendizaje y supervisar la precisión técnica y pedagógica del contenido. Validó que el recurso respondiera a una necesidad diagnóstica real: la dificultad de los estudiantes para elegir entre enfoques tradicionales y ágiles.
 *   **Antigravity (Asistente Técnico y Creativo - IA):** Actuó como el motor de generación de contenidos, diseñador de interfaces y creador de material visual. Se encargó de estructurar la información teórica bajo principios de ingeniería de prompts, desarrollar el código de la plataforma interactiva y generar las piezas gráficas conceptuales.
 
 ## 2. Análisis de Prompts (Ingeniería de Instrucciones)
