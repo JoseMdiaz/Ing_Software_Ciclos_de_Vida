@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="gradient-bg"></div>
 
@@ -22,11 +24,13 @@
         <section id="intro" class="visible">
             <div class="card">
                 <h2>🚀 Introducción al SDLC</h2>
-                <p>El Ciclo de Vida de Desarrollo de Software (SDLC) es el proceso estructurado utilizado por los equipos de ingeniería para diseñar, desarrollar y probar software de alta calidad.</p>
+                <p>El Ciclo de Vida de Desarrollo de Software (SDLC) es el proceso estructurado utilizado por los
+                    equipos de ingeniería para diseñar, desarrollar y probar software de alta calidad.</p>
                 <div class="img-container">
                     <img src="sdlc_diagram.png" alt="Diagrama SDLC generado por IA">
                 </div>
-                <p>El objetivo no solo es escribir código, sino garantizar que la solución cumpla con los requisitos del usuario, sea mantenible y se entregue en plazo.</p>
+                <p>El objetivo no solo es escribir código, sino garantizar que la solución cumpla con los requisitos del
+                    usuario, sea mantenible y se entregue en plazo.</p>
             </div>
         </section>
 
@@ -34,19 +38,26 @@
         <section id="tradicional">
             <div class="card">
                 <h2>🏛️ Modelos Tradicionales (Plan-driven)</h2>
-                <p>Estos modelos enfatizan la planificación exhaustiva y el control riguroso antes de iniciar el desarrollo.</p>
+                <p>Estos modelos enfatizan la planificación exhaustiva y el control riguroso antes de iniciar el
+                    desarrollo.</p>
                 <div class="grid">
-                    <div class="model-item">
+                    <div class="model-item clickable" id="waterfall-btn">
                         <h3>Cascada (Waterfall)</h3>
-                        <p>Lineal y secuencial. Cada fase debe completarse antes de pasar a la siguiente. Ideal para proyectos con requisitos fijos.</p>
+                        <p>Lineal y secuencial. Cada fase debe completarse antes de pasar a la siguiente. Ideal para
+                            proyectos con requisitos fijos.</p>
+                        <span class="click-hint">📄 Ver Diagrama</span>
                     </div>
-                    <div class="model-item">
+                    <div class="model-item clickable" id="v-model-btn">
                         <h3>Modelo en V</h3>
-                        <p>Asocia cada fase de desarrollo con una fase de prueba correspondiente. Garantiza la calidad desde el inicio.</p>
+                        <p>Asocia cada fase de desarrollo con una fase de prueba correspondiente. Garantiza la calidad
+                            desde el inicio.</p>
+                        <span class="click-hint">📄 Ver Diagrama</span>
                     </div>
-                    <div class="model-item">
+                    <div class="model-item clickable" id="spiral-btn">
                         <h3>Espiral</h3>
-                        <p>Modelo evolutivo que pone énfasis en el <strong>Análisis de Riesgos</strong> en cada iteración.</p>
+                        <p>Modelo evolutivo que pone énfasis en el <strong>Análisis de Riesgos</strong> en cada
+                            iteración.</p>
+                        <span class="click-hint">📄 Ver Diagrama</span>
                     </div>
                 </div>
             </div>
@@ -56,7 +67,8 @@
         <section id="agile">
             <div class="card">
                 <h2>⚡ La Revolución Ágil</h2>
-                <p>Aparece como respuesta a la rigidez de los modelos tradicionales, priorizando la entrega temprana y la adaptación al cambio.</p>
+                <p>Aparece como respuesta a la rigidez de los modelos tradicionales, priorizando la entrega temprana y
+                    la adaptación al cambio.</p>
                 <div class="img-container">
                     <img src="scrum_infographic.png" alt="Infografía Agile/Scrum generada por IA">
                 </div>
@@ -72,7 +84,8 @@
                     </div>
                     <div class="model-item">
                         <h3>Scrum</h3>
-                        <p>Marco de trabajo basado en Sprints (1-4 semanas), con roles definidos (PO, Scrum Master, Team) y ceremonias claras.</p>
+                        <p>Marco de trabajo basado en Sprints (1-4 semanas), con roles definidos (PO, Scrum Master,
+                            Team) y ceremonias claras.</p>
                     </div>
                 </div>
             </div>
@@ -83,7 +96,7 @@
             <div class="card simulator-card">
                 <h2>🎮 Agile SDLC Explorer</h2>
                 <p>Interactúa con el ciclo de vida. Mueve un requerimiento a través de las fases de un Sprint Ágil.</p>
-                
+
                 <div class="sdlc-board">
                     <div class="phase" data-phase="1">
                         <span class="phase-number">1</span>
@@ -123,7 +136,9 @@
                 <div class="controls">
                     <button id="next-step" class="btn-primary">Avanzar Fase SDLC ➡️</button>
                     <button id="reset-sim" class="btn-secondary">Reiniciar Sprint</button>
-                    <button id="download-progress" class="btn-accent" style="display: none; padding: 0.8rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 0.5rem; cursor: pointer;">💾 Guardar para Drive</button>
+                    <button id="download-progress" class="btn-accent"
+                        style="display: none; padding: 0.8rem 1.5rem; background: var(--accent); color: white; border: none; border-radius: 0.5rem; cursor: pointer;">💾
+                        Guardar para Drive</button>
                 </div>
 
                 <div id="phase-detail" class="detail-box">
@@ -132,16 +147,22 @@
             </div>
         </section>
 
-        <!-- Actividad Práctica -->
+        <!-- Actividad Práctica Interactiva -->
+        <!-- Actividad Práctica Interactiva -->
         <section id="actividad">
-            <div class="card activity-card">
-                <span class="badge">ACTIVIDAD DE DIAGNÓSTICO</span>
-                <h2>🛠️ Caso de Estudio: App Médica SOS</h2>
-                <p><strong>Contexto:</strong> Debes desarrollar una aplicación para la gestión de emergencias médicas en tiempo real. Los requisitos técnicos son estrictos (seguridad de datos), pero las necesidades operativas de los hospitales cambian semanalmente según el feedback de los médicos.</p>
-                <p><strong>Pregunta:</strong> ¿Qué enfoque elegirías? Justifica tu decisión considerando el riesgo y la adaptabilidad.</p>
-                <button id="toggle-answer" style="padding: 0.5rem 1rem; background: var(--primary); border: none; border-radius: 0.5rem; color: var(--dark); font-weight: bold; cursor: pointer;">Ver Sugerencia Técnica</button>
-                <div id="answer" style="display: none; margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 0.5rem;">
-                    <p><em>Sugerencia:</em> Un enfoque <strong>Híbrido</strong> o <strong>Ágil (Scrum)</strong> sería más adecuado. Aunque la seguridad es crítica, la alta variabilidad del feedback médico requiere iteraciones frecuentes para no construir algo inútil.</p>
+            <div class="card activity-card" id="quiz-block">
+                <span class="badge">EVALUACIÓN DE CASOS</span>
+                <h2>🛠️ Simulador de Toma de Decisiones Técnicas</h2>
+                <p>Pon a prueba tu criterio experto. Lee el contexto de cada proyecto y selecciona el ciclo de vida más
+                    adecuado.</p>
+
+                <!-- Dynamic Quiz Container -->
+                <div id="dynamic-quiz-container">
+                    <!-- JS will inject question and options here -->
+                </div>
+
+                <div id="quiz-controls" style="margin-top: 1.5rem; display: none; text-align: right;">
+                    <button id="next-question-btn" class="btn-primary">Siguiente Caso ➡️</button>
                 </div>
             </div>
         </section>
@@ -152,6 +173,42 @@
         <p>Materia: Ingeniería de Software | 2026</p>
     </footer>
 
+    <!-- Modal for Waterfall Model -->
+    <div id="waterfall-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Modelo en Cascada (Waterfall)</h2>
+            <img src="/waterfall_model.jpg" alt="Modelo en Cascada" class="modal-img">
+            <p>El modelo en cascada es un enfoque secuencial donde cada fase (Requisitos, Diseño, Desarrollo, Pruebas,
+                Despliegue) fluye hacia abajo, de forma estricta, hacia la siguiente etapa.</p>
+        </div>
+    </div>
+
+    <!-- Modal for V-Model -->
+    <div id="v-model-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Modelo en V</h2>
+            <img src="/v_model.jpg" alt="Modelo en V" class="modal-img">
+            <p>El Modelo en V relaciona directamente las fases del lado izquierdo (Especificación y Diseño) con sus
+                respectivas fases de Validación y Pruebas en el lado derecho. Destaca planificar pruebas tempranamente.
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal for Spiral Model -->
+    <div id="spiral-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Modelo Espiral</h2>
+            <img src="/spiral_model.jpg" alt="Modelo Espiral" class="modal-img">
+            <p>El Modelo en Espiral es iterativo y se centra en la evaluación y mitigación continua de riesgos. Cada
+                'bucle' refina el producto combinando elementos del diseño tradicional y la construcción de prototipos.
+            </p>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
