@@ -18,7 +18,7 @@
 > "Explica la esencia de las metodologías ágiles. Resume el Manifiesto Ágil (4 valores y 12 principios) de manera que se entienda la transformación que supuso respecto a lo tradicional."
 
 ### Prompt 04: Caso de Estudio (Actividad)
-> "Crea un mini-caso de estudio sobre el desarrollo de una aplicación móvil para la gestión de emergencias médicas. El estudiante debe justificar si usaría una metodología tradicional o ágil basándose en los requisitos (cambiantes/críticos)."
+> "Crea un mini-caso de estudio sobre el desarrollo de una aplicación móvil para la gestión de emergencias médicas. El estudiante debe justificar si usaría una metodología tradicional o ágil basándose en los requisitos (cambiantes/críticos). Puedes crrear varios ejemplos como el anterior pero con dinamica con 5 preguntas que pase a la siguiente con elementos de seleccion"
 
 ## Registro de Prompts (IA Generativa de Imagen)
 
