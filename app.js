@@ -167,6 +167,188 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Dynamic Video Quiz Logic ---
+    const videoQuizData = [
+        {
+            question: "1. ¿Qué define mejor el concepto de 'tiempo de inactividad' (downtime)?",
+            options: [
+                { text: "El tiempo en que los desarrolladores planifican nuevos sprints.", correct: false, feedback: "❌ Incorrecto. No se refiere a la planificación." },
+                { text: "Servicio no disponible para los usuarios, afectando experiencia y rentabilidad.", correct: true, feedback: "✅ ¡Correcto! Y el objetivo es erradicarlo (Zero Downtime)." },
+                { text: "La pausa requerida obligatoriamente tras desplegar software monolítico.", correct: false, feedback: "❌ Incorrecto. No es una definición propia del modelo." }
+            ]
+        },
+        {
+            question: "2. Según lo explicado, ¿cuál es una limitación estructural del Modelo de Cascada (Waterfall)?",
+            options: [
+                { text: "El cliente únicamente ve el producto funcional al finalizar el ciclo completo.", correct: true, feedback: "✅ ¡Correcto! Dificulta cambiar el rumbo si el mercado evoluciona a mitad del proyecto." },
+                { text: "Las juntas diarias cansan a los desarrolladores y consumen presupuesto.", correct: false, feedback: "❌ Incorrecto. Las juntas diarias (Dailys) son de entornos ágiles." },
+                { text: "Impide el uso de servidores alojados en la nube.", correct: false, feedback: "❌ Incorrecto. La infraestructura es independiente del ciclo de vida de desarrollo." }
+            ]
+        },
+        {
+            question: "3. Arquitectónicamente, ¿cómo desglosa los productos la metodología ágil?",
+            options: [
+                { text: "A través de enormes bloques monolíticos.", correct: false, feedback: "❌ Incorrecto. Eso lo hace un modelo tradicional u obsoleto." },
+                { text: "Dividiendo en microservicios y características autónomas para pequeños escuadrones.", correct: true, feedback: "✅ ¡Excelente! Esto permite actualizar partes sin detener la aplicación principal." },
+                { text: "Delegando el 100% del diseño al analista de negocio.", correct: false, feedback: "❌ Incorrecto. Agile favorece escuadrones técnicos multifuncionales." }
+            ]
+        },
+        {
+            question: "4. ¿Por qué es vital obtener feedback rápido del cliente durante cada iteración?",
+            options: [
+                { text: "Evita diseñar especificaciones que el mercado no desea ahorrando costos.", correct: true, feedback: "✅ ¡Correcto! Asegura el llamado 'Product-Market Fit'." },
+                { text: "Es un requerimiento legal para evitar demandas financieras.", correct: false, feedback: "❌ Incorrecto. Tiene fines de calidad técnica y comercial." },
+                { text: "Disminuye la frecuencia obligatoria de pruebas.", correct: false, feedback: "❌ Incorrecto. Al contrario, las iteraciones incentivan mayor Testing Continuo." }
+            ]
+        },
+        {
+            question: "5. Sobre el caso corporativo de Cisco (y otros similares), ¿qué mejora se suele alcanzar gracias a Agile?",
+            options: [
+                { text: "Ahorro total sin pagar servidores.", correct: false, feedback: "❌ Incorrecto." },
+                { text: "Reducción documentada (a menudo ~40%) de defectos técnicos críticos liberados.", correct: true, feedback: "✅ ¡Bien hecho! El aseguramiento continuo evita errores en producción." },
+                { text: "Eliminación absoluta de los evaluadores de calidad humana.", correct: false, feedback: "❌ Incorrecto. Se reasignan, no se desaparecen." }
+            ]
+        },
+        {
+            question: "6. ¿Cómo relacionan las revisiones en tiempo real a la mitigación de riesgo?",
+            options: [
+                { text: "Ayudan a inspeccionar el producto frecuentemente y pivotar a tiempo si hay desviación.", correct: true, feedback: "✅ ¡Correcto! La inspección y adaptación constante es obligatoria en agilidad." },
+                { text: "Son utilizadas para conseguir que el banco otorgue créditos al equipo.", correct: false, feedback: "❌ Incorrecto." },
+                { text: "Hacen que el código se pruebe por clientes al azar sin aviso.", correct: false, feedback: "❌ Incorrecto. Existen pruebas controladas." }
+            ]
+        },
+        {
+            question: "7. ¿Qué beneficio resaltó Sony u otras megacorporaciones al transicionar al agilismo?",
+            options: [
+                { text: "Creación excesiva de documentación legal en cascada.", correct: false, feedback: "❌ Incorrecto. Agile busca software funcional sobre documentación extensa." },
+                { text: "La aceleración masiva del 'Time-to-Market', pasando lanzamientos de años a meses o semanas.", correct: true, feedback: "✅ ¡Correcto! La competitividad digital es velocidad hacia su cliente final." },
+                { text: "El reemplazo de desarrolladores por computadoras puramente ensambladoras.", correct: false, feedback: "❌ Incorrecto." }
+            ]
+        },
+        {
+            question: "8. Al dividir funcionalidades (Micro fases o iterations), ¿cómo actúa el modelo frente a la inversión inicial del cliente?",
+            options: [
+                { text: "Mitiga el gasto ciego con una recuperación temprana de valor parcial.", correct: true, feedback: "✅ ¡Buenísimo! El cliente obtiene versiones 100% usables rápido." },
+                { text: "Empeora las finanzas forzando pagos diarios estresantes.", correct: false, feedback: "❌ Incorrecto." },
+                { text: "Cancela todo el presupuesto si la primera fase falla y se apaga el negocio.", correct: false, feedback: "❌ Incorrecto. Al contrario, se ajusta el producto, no se cancela inmediatamente." }
+            ]
+        },
+        {
+            question: "9. ¿Cómo interconecta la Metodología Ágil la codificación y el testeo?",
+            options: [
+                { text: "Aíslan 6 meses a codificar y luego un año para probar sin mezclarse.", correct: false, feedback: "❌ Incorrecto. Ese es el defecto de modelos muy predictivos viejos." },
+                { text: "Uniendo labores concurrentemente en el Sprint: codificación + validación casi paralela.", correct: true, feedback: "✅ ¡Sí! El 'Sprint' contiene todo su propio miniciclo de vida armónico." },
+                { text: "Omitiendo el test de caja blanca permanentemente.", correct: false, feedback: "❌ Incorrecto. Todas las pruebas (unidad, integración, e2e) ocurren en el sprint." }
+            ]
+        },
+        {
+            question: "10. ¿Por qué arquitecturas en microservicios junto con Agilidad brindan resiliencia?",
+            options: [
+                { text: "Porque la célula actualiza su servicio en caliente independiente sin apagar todo el núcleo central.", correct: true, feedback: "✅ ¡Exacto! Fallo local = reparación local, sin tirar todo el sistema abajo." },
+                { text: "Simplemente para obligar programarlo todo en un lenguaje vetusto.", correct: false, feedback: "❌ Incorrecto." },
+                { text: "A fin de esconder un código inaccesible al liderazgo.", correct: false, feedback: "❌ Incorrecto. El código ágil siempre apunta a la transparencia total y abierta." }
+            ]
+        }
+    ];
+
+    let currentVideoQuizIndex = 0;
+    let videoQuizCorrectAnswers = 0;
+
+    const videoQuizContainer = document.getElementById('dynamic-video-quiz-container');
+    const nextVideoQuestionBtn = document.getElementById('next-video-question-btn');
+    const videoQuizControls = document.getElementById('video-quiz-controls');
+
+    const renderVideoQuiz = () => {
+        if (!videoQuizContainer) return;
+
+        if (currentVideoQuizIndex >= videoQuizData.length) {
+            videoQuizContainer.innerHTML = `
+                <div style="text-align: center; padding: 2.5rem; background: rgba(0, 150, 255, 0.05); border-radius: 1rem; border: 1px solid var(--accent);">
+                    <h3>🎯 Resultados de Evaluación del Video</h3>
+                    <h1 style="font-size: 3rem; margin: 1rem 0; color: var(--accent);">${videoQuizCorrectAnswers} / ${videoQuizData.length}</h1>
+                    <p style="color: var(--light); font-size: 1.1rem; max-width: 500px; margin: 0 auto; line-height: 1.6;">Demostraste una excelente comprensión de cómo la Agilidad mitiga riesgos, reduce el downtime, optimiza microservicios y acelera el Time-to-Market de forma crítica.</p>
+                    <button id="restart-video-quiz-btn" class="btn-primary" style="margin-top: 2rem;">Rehacer Quiz de Conceptos 🔄</button>
+                </div>
+            `;
+            videoQuizControls.style.display = 'none';
+
+            document.getElementById('restart-video-quiz-btn').addEventListener('click', () => {
+                currentVideoQuizIndex = 0;
+                videoQuizCorrectAnswers = 0;
+                renderVideoQuiz();
+            });
+            return;
+        }
+
+        const data = videoQuizData[currentVideoQuizIndex];
+        
+        let html = `
+            <div style="margin-bottom: 2rem; background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <span class="badge" style="background: var(--dark); border: 1px solid #475569; color: var(--light);">Pregunta ${currentVideoQuizIndex + 1} de ${videoQuizData.length}</span>
+                <h4 style="margin-top: 1.5rem; font-size: 1.2rem; color: var(--light); line-height: 1.5;">${data.question}</h4>
+            </div>
+            <div class="quiz-container" id="video-options-container">
+        `;
+
+        data.options.forEach((opt, idx) => {
+            html += `<button class="quiz-btn" style="width: 100%; text-align: left;" data-correct="${opt.correct}" data-index="${idx}">${opt.text}</button>`;
+        });
+
+        html += `</div><div id="video-quiz-feedback" class="feedback-box" style="display: none; margin-top: 1.5rem;"></div>`;
+
+        videoQuizContainer.innerHTML = html;
+        videoQuizControls.style.display = 'none';
+
+        const optionBtns = videoQuizContainer.querySelectorAll('.quiz-btn');
+        const feedbackBox = videoQuizContainer.querySelector('#video-quiz-feedback');
+        let answered = false;
+
+        optionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (answered) return;
+                answered = true;
+
+                const isCorrect = btn.dataset.correct === 'true';
+                const optIndex = parseInt(btn.dataset.index);
+                const feedbackText = data.options[optIndex].feedback;
+
+                if (isCorrect) videoQuizCorrectAnswers++;
+
+                optionBtns.forEach(b => {
+                    const correctly = b.dataset.correct === 'true';
+                    b.style.transition = 'all 0.3s ease';
+                    if (b === btn) {
+                        b.classList.add(isCorrect ? 'selected-correct' : 'selected-incorrect');
+                    } else if (correctly) {
+                        b.classList.add('selected-correct');
+                        b.style.opacity = '0.7';
+                    } else {
+                        b.style.opacity = '0.3';
+                        b.style.cursor = 'not-allowed';
+                    }
+                });
+
+                feedbackBox.className = 'feedback-box ' + (isCorrect ? 'correct' : 'incorrect');
+                feedbackBox.innerHTML = `<p>${feedbackText}</p>`;
+                feedbackBox.style.display = 'block';
+                feedbackBox.style.animation = 'fadeIn 0.5s ease';
+
+                videoQuizControls.style.display = 'block';
+            });
+        });
+    };
+
+    if (videoQuizContainer) {
+        renderVideoQuiz();
+        
+        if (nextVideoQuestionBtn) {
+            nextVideoQuestionBtn.addEventListener('click', () => {
+                currentVideoQuizIndex++;
+                renderVideoQuiz();
+            });
+        }
+    }
+
     // --- Simulator Logic ---
     const phases = [
         { id: 1, label: "Análisis", event: "Sprint Planning", detail: "En Agile, el análisis es continuo. Definimos el 'Definition of Ready' para el ticket." },
